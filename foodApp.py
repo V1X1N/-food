@@ -3,7 +3,7 @@ import requests
 from dotenv import dotenv_values
 import os
 
-secrets = dotenv_values(".env")
+
 
 app = Flask(__name__)
 API_KEY = os.environ.get("API_KEY")
@@ -39,5 +39,9 @@ def search():
         "rating": b["rating"],
         "address": ", ".join(b["location"]["display_address"])
     } for b in businesses]
-
+    
     return jsonify(results)
+@app.route("/")
+def home():
+    return "API is running! Try /search?zip=32830&category=Pizza"
+
