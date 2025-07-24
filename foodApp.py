@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import requests
 from dotenv import dotenv_values
 import os
+from flask import render_template
 
 
 
@@ -43,5 +44,6 @@ def search():
     return jsonify(results)
 @app.route("/")
 def home():
-    return "API is running! Try /search?zip=32830&category=Pizza"
+     return render_template("index.html")
+    
 
