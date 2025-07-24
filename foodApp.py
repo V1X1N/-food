@@ -17,9 +17,8 @@ def home():
     results = [] 
 
     if request.method == "POST":
-        
-    zip_code = request.form.get("zip")
-    category = request.form.get("category")
+        zip_code = request.form.get("zip")
+        category = request.form.get("category")
 
     if zip_code and category:
         url = "https://api.yelp.com/v3/businesses/search"
