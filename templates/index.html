@@ -1,1 +1,29 @@
-
+<!DOCTYPE html>
+<html>
+  <head>
+    Food Finder
+  </head>
+  <body>
+    <h1>Find Food Near You!</h1>
+    <form action="/" method="POST">
+    <label for="zip">ZipCode: </label>
+      <input type="text" name="zip" required>
+      <br><br>
+    <label for="category">Category:</label>
+      <input type= "text" name="category" required>
+      <br><br>
+      <button type="submit">Search</button>
+        {% if results %}
+        <h2>Results: </h2>
+          <ul>
+            {% For item in results %}
+            <li>
+              <strong>{{item name}}</strong> - {{item.rating}} stars<br>
+              {{item.address}}<br>
+            </li>
+            {% endfor %}
+          </ul>
+      {% endif %}
+    </body>
+</html>
+      
