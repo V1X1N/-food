@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import requests
 from dotenv import dotenv_values
+import os
 
 secrets = dotenv_values(".env")
 
