@@ -11,16 +11,18 @@ HEADERS = {"Authorization": f"Bearer {API_KEY}"}
 
 CATEGORIES = ["Cafe", "Boba", "Pizza", "Burgers", "Chinese", "Japanese", "Mexican", "Indian", "Italian"]
 
-@app.route("/search", methods=["GET"])
-def search():
-    zip_code = request.args.get("zip")
-    category = request.args.get("category")
+@app.route("/", methods=["GET","POST"])
+def home():
+    results = [] 
 
-    if not zip_code or not category:
-        return jsonify({"error": "Missing zip or category"}), 400
+    if request.method == "POST":
+        
+    zip_code = request.form.get("zip")
+    category = request.form.get("category")
 
-    url = "https://api.yelp.com/v3/businesses/search"
-    params = {
+    if zip_code and category:
+        url = "https://api.yelp.com/v3/businesses/search"
+        params = {
         "term": category,
         "location": zip_code,
         "limit": 5,
