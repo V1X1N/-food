@@ -5,7 +5,7 @@ from dotenv import dotenv_values
 secrets = dotenv_values(".env")
 
 app = Flask(__name__)
-API_KEY = secrets["API_KEY"]
+API_KEY = os.environ.get("API_KEY")
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
 
 CATEGORIES = ["Cafe", "Boba", "Pizza", "Burgers", "Chinese", "Japanese", "Mexican", "Indian", "Italian"]
